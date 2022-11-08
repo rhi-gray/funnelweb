@@ -1,0 +1,10 @@
+$def with (title="", content="", **kwargs)
+
+$var title: $title
+$if kwargs.get('redir_dest',''):
+    $if kwargs.get('redir_time'):
+        $var head: <meta http-equiv="refresh" content="$kwargs['redir_time']; URL=$kwargs['redir_dest']" />
+    $else:
+        $var head: <meta http-equiv="refresh" content="10" URL=$kwargs['redir_dest']" />
+
+$:content

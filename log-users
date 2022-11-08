@@ -1,0 +1,11 @@
+#!/usr/bin/python2
+import arrow
+import net_tools, configuration, save_quota
+
+start = arrow.utcnow()
+users = configuration.query_quota_users()
+for user in users:
+  for var in save_quota.KNOWN_QUOTA_TYPES:
+    save_quota.save_quota(user, var, now=start)
+
+print("Logged {} users.".format(len(users)))

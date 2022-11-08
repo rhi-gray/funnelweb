@@ -1,0 +1,26 @@
+$var title: Usage
+$def with (ip, origin)
+
+<h2> Login </h2>
+<p> Hi, $ip. </p>
+<p> After you login, you will be redirected to $origin.</p>
+<form method="POST" action="/funnelweb_login">
+  <label for="uname"> Username: </label>
+  <input type="text" name="uname" />
+  <br />
+  <label for="passwd"> Password: </label>
+  <input type="password" name="passwd" />
+  <br />
+  <label for="remember_time">Login duration:</label>
+  <select disabled name="remember_time">
+    <option value="forever">Forever</option>
+    <option value="24">One day</option>
+    <option value="12">Twelve hours</option>
+    <option value="6">Six hours</option>
+    <option value="1">One hour</option>
+    <option value="0.5">Half an hour</option>
+  </select>
+  <br />
+  <button type="submit">Submit</button>
+  <input type="hidden" name="origin" value="$origin" />
+</form>

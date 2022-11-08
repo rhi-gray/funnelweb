@@ -1,0 +1,17 @@
+$def with (user, msg_dyn, msg_sta, msg_bon, lock, percent)
+
+$var title: Usage
+$var head: <link rel="stylesheet" href="/static/usage.css"> <meta http-equiv="refresh" content="60">
+
+$if user:
+    <h1 class="mini">You have used:</h1> <h3 class="mini">$percent</h3>
+    <h3 class="mini">$msg_dyn</h3> <h2>(daily dynamic)</h2>
+    <h3 class="mini">$msg_sta</h3> <h2>(daily static)</h2>
+    <h3 class="mini">$msg_bon</h3> <h2>(per-month)</h2>
+$else:
+    <h1 class="mini">Unknown user.</h1>
+
+<nbsp />
+<hr />
+<h2 class="mini">$lock</h2>
+<a href="/soft_lock">Lock </a> or <a href="/soft_unlock">unlock</a> me.

@@ -1,0 +1,14 @@
+#!/funnelweb/python-env/bin/python
+import net_tools
+import InternodeReader # To get information about the quota/current usage.
+
+# We also need to implement a method which works by tallying quota use from all the log files in /var/log/net-control/$user.$date.log.
+# That's a more difficult problem, which I'll have to think about a fair bit.
+
+ii = InternodeReader.InternodeAccess("USERNAME", "PASSWORD")
+ii.get_service_info()
+CURRENT, TOTAL = ii.get_today()
+with open("/var/log/net-control/remainder", "w") as f:
+    f.write("{} {}".format(CURRENT, TOTAL))
+print("{} remaining".format(net_tools.human_readable(TOTAL - CURRENT, padding=False)))
+

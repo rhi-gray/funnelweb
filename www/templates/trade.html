@@ -1,0 +1,30 @@
+$def with (form, balance={})
+
+$var title: Trade quota
+
+<div id="balance">
+  <table>
+    <tr><th>Balance:</th><td></td></tr>
+    <tr>
+      <td>Daily dynamic</td>
+      <td>$(balance.get("fw:quota-dynamic", "0B"))</td>
+    </tr>
+    <tr>
+      <td>Daily static</td>
+      <td>$(balance.get("fw:quota-static", "0B"))</td>
+    </tr>
+    <tr>
+      <td>Monthly</td>
+      <td>$(balance.get("fw:quota-monthly", "0B"))</td>
+    </tr>
+    <tr>
+      <td>Bonus</td>
+      <td>$(balance.get("fw:quota-bonus", "0B"))</td>
+    </tr>
+  </table>
+</div>
+
+<form name="tradequota" method="POST" action="/tradequota">
+  $:form.render()
+  <button type="submit">Submit</button>
+</form>

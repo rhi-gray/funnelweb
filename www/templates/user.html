@@ -1,0 +1,38 @@
+$def with ()
+$var title: User settings
+
+<script>
+    function validate() {
+        var passwd1 = document.forms["manage"]["newpassword"].value;
+        var passwd2 = document.getElementById("verify").value;
+        var dev_act = document.forms["manage"]["device_action"].value;
+
+        if (dev_act == "remove") {
+            if (confirm("Are you sure you want to remove this device?"));
+            else return false;
+        }
+
+        if (passwd1 != passwd2) {
+            alert("Your passwords don't match!");
+            return false;
+        }
+    }
+</script>
+<form name="manage" method="POST" onsubmit="return validate();" action="/funnelweb_manage" >
+  <label for="username"> Username: </label>
+  <input required type="text" name="username" />
+  <br />
+  <label for="password"> Password: </label>
+  <input required type="password" name="password" />
+  <hr />
+  <label for="newpassword"> New password: </label>
+  <input type="password" name="newpassword" />
+  <br />
+  <label for="verify"> New password (verify): </label>
+  <input type="password" id="verify" />
+  <br />
+  <label for="device"> Un-register this device: </label>
+  <input type="checkbox" name="device_action" value="remove" />
+  <br />
+  <button type="submit">Submit</button>
+</form>

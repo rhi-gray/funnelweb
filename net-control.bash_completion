@@ -1,0 +1,64 @@
+#!/bin/bash
+
+_get_valid_names(){
+    echo $( grep -Po "((?<=group)|(?<=device)|(?<=user))\s+(\w+)" /etc/net-control/conf.scm )
+    return 0
+}
+
+VALID_NAMES=$( _get_valid_names )
+_net_control(){
+    local all_commands=(
+        status table zero daycyle
+        lock unlock soft-lock soft-unlock
+        add set bonus
+        start stop restart freeday
+    )
+
+    # Get the list of users we recognise.
+    local names=$VALID_NAMES
+
+    # The current word, and the previous word.
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    local prev=${COMP_WORDS[COMP_CWORD-1]}
+    local command=${COMP_WORDS[1]}
+
+    # If we're still typing the command name, offer some assistance.
+    if [[ $COMP_CWORD = 1 ]] ; then
+        COMPREPLY=( $(compgen -W "${all_commands[*]}" -- $cur) )
+        return 0
+    fi
+
+    # Now, decide which type of command we've got.
+    case $command in
+        lock|unlock|status|table|zero|daycycle )
+            # Command takes a list of usernames.
+            COMPREPLY=( $(compgen -W "$names" -- $cur) )
+            return 0
+            ;;
+
+        start|stop|restart|freeday )
+            COMPREPLY=( ) # We shouldn't complete anything.
+            return 0
+            ;;
+
+        add|set|bonus )
+            # If we've already entered the argument, then we can complete usernames.
+            # Otherwise, don't try completing anything.
+            if [[ $COMP_CWORD = 2 ]] ; then # We're still on the argument.
+                # Assume that we want megabytes. It's fairly safe.
+                if [[ $cur = "" ]]; then
+                    COMPREPLY=( ) # Don't suggest anything for a blank field.
+                else
+                    COMPREPLY=( "${cur}M" )
+                fi
+            else
+                COMPREPLY=( $(compgen -W "$names" -- $cur) )
+            fi
+            return 0
+            ;;
+    esac
+
+}
+
+complete -F _net_control net-control
+complete -F _net_control nc

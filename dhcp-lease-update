@@ -1,0 +1,10 @@
+#!/bin/bash
+
+op=$1
+mac=$2
+ip=$3
+hn=$4
+
+echo dnsmask-lease-update $op $mac $ip $hn >> /var/log/dhcp
+
+/funnelweb/dhcp-lease-update.py  $op $mac $ip $hn

@@ -1,0 +1,9 @@
+Breakdown of what make-machine-map actually does.
+
+	  cat /etc/dnsmasq.dhcp-hosts | grep -v '^#' | grep -v '^$' | sed 's/dhcp-host=//' | tr ',' ' ' > /etc/raw-network-index
+
+	  cat /etc/raw-network-index | gawk -v domain="domain.example.org" -v dhcphosts=/etc/dhcp-hosts -v ethers=/etc/ethers -v Legit=/etc/Legit -f /etc/machine-map-data.gawk
+
+<< Concatenate hosts.head, hosts, and hosts.tail >>
+
+<< Move all the temp files into place >>

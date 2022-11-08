@@ -1,0 +1,26 @@
+$def with (content)
+
+<html>
+  <head> 
+    <title>Owl - $content.title</title>
+    <link rel="stylesheet" href="/static/main.css" />
+    <link rel="icon" href="/static/icon.png" />
+    $:content.get("head", "")
+  </head>
+  <body>
+    <navbar>
+      <ul>
+        <li><a href="/usage">Usage</a></li>
+        <li><a href="/admin">Admin</a></li>
+        <li><a href="/adduser">Add user</a></li>
+        <li><a href="/adddevice">Add device</a></li>
+        <li><a href="/tradequota">Trade quota</a></li>
+      </ul>
+    </navbar>
+    <h1>$content.title</h1>
+    $:content.get("page_header", "")
+
+    <hr />
+    $:content
+  </body>
+</html>

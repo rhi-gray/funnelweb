@@ -1,0 +1,239 @@
+/*
+  Stylesheet for Owl's usage meter.
+  */
+
+html {
+    background-color: #EEE;
+}
+
+body {
+    width: 80%;
+    height: auto;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 30px;
+
+    background-color: #CCC;
+
+    box-shadow: 10px 10px 14px #555;
+}
+
+navbar {
+    width: 120%;
+    margin-left: -10%;
+    display: block;
+    height: 20pt;
+    background-color: #333;
+}
+
+navbar li {
+    list-style-type: none;
+    margin-right: 20px;
+    float: left;
+    display: inline;
+}
+
+navbar li a {
+    display: block;
+    padding: 0 1em 0 1em;
+    margin-top: 4pt;
+    background-color: #aaa;
+    color: #000;
+    text-decoration: none;
+    font-variant: small-caps;
+    font-family: serif;
+}
+
+navbar li a:hover {
+    background-color: #fff;
+}
+
+h1 {
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 1.4em;
+}
+
+h2 {
+    padding-left: 5%;
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 1.2em;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.inline {
+	 display: inline;
+	 margin: 0%;
+	 padding-left: 10px;
+}
+
+pre {
+    background-color: #EEE;
+    border: 4px solid #A2A2A2;
+    border-radius: 1px;
+    margin-left: 10%;
+    margin-right: 20%;
+    min-height: 200px;
+}
+
+hr {
+    color: #CCC;
+    width: 60%;
+
+	 clear: left;
+}
+
+button[type=submit] {
+    float: right;
+}
+
+/* Stuff for the admin page */
+@media only screen and (max-device-width: 600px) {
+    #usagetable {
+        display: none;
+    }
+}
+
+#usagetable {
+    background-color: #555;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#usagetable tr {
+    color: #EEE;
+    font-family: monospace;
+}
+#usagetable tr.odd {
+    background-color: #666;
+}
+
+#usagetable tr.header {
+    font-weight: bold;
+    background-color: #333;
+}
+
+#usagetable td.user {
+    font-weight: bold;
+}
+
+#usagetable td.device {
+    font-size: 8pt;
+}
+
+#usagetable td.lc {
+    /* Hard-locked */
+    font-style: oblique;
+    color: #CCC;
+}
+#usagetable td.unl {
+/* Unlocked */
+}
+
+#balance table {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#balance th {
+    background-opacity: 0;
+}
+
+#balance tr:nth-child(even) {
+    background-color: #aaa;
+}
+#balance tr:nth-child(odd) {
+    background-color: #777;
+}
+
+form table {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form label {
+    display: block;
+    text-align: right;
+}
+
+form select {
+    width: 100%;
+    z-index: 10;
+}
+form input {
+    width: 100%;
+    z-index: 10;
+}
+
+form td {
+    width: 50%;
+}
+
+form .wrong {
+    position: relative;
+    float: right;
+    text-align: right;
+    width: 200px;
+    margin-left: -200px;
+    z-index: 20;
+}
+
+/* The banner for the control panel */
+.header div {
+	 background-image: url("/imgs/header-gradient.png");
+	 background-repeat:repeat-x;
+}
+.header img {
+	 float: left;
+}
+.header h1 {
+	 float: left;
+	 margin-left: auto;
+	 margin-right: auto;
+}
+.header .quickusage {
+	 float: right;
+
+	 background-color: #666;
+    border: 4px solid #A2A2A2;
+    border-radius: 5px;
+
+	 padding: 2px;
+	 margin: 0% 5%;
+}
+
+/* Scrolling target choice boxes. */
+.scrolllist {
+	 max-height: 300px;
+    margin-left: 10%;
+    margin-right: 20%;
+
+	 list-style: none;
+	 overflow: auto;
+}
+.scrolllist li {
+	 padding-left: 0px;
+	 border: 1px solid #ccc;
+}
+.scrolllist label {
+	 display: block;
+}
+.scrolllist label:hover {
+	 background-color:#A2A2A2;
+}
+.scrolllist label:checked {
+	 background-color:#A2A2A2;
+}
+
+/* ID specific HTML. */
+#hint {
+    font-size: 0.8em;
+}

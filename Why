@@ -1,0 +1,49 @@
+                  Funnelweb gives you control.
+
+
+Funnelweb is a software package that helps manage the use of a
+household network. It lets you limit how much data is used, what is
+available or blacklisted, and when the internet is available. In
+short, it gives you control.
+
+ISP's often provide their service with some sort of "monthly
+quota". When that quota is used up, they may block connections
+completely, or throttle your connection speed. Funnelweb can manage
+each user's quota independently in a very similar way -- people can
+have daily or monthly quotas which help keep the household usage under
+control.
+
+We designed Funnelweb when we had young children and wanted to be able
+to control when the network was available, how much time they spent on
+it and to protect them from less savory sites.  Arguments about
+"needing to finish this game" before coming to dinner or going to bed
+vanished, and the children started budgeting their usage so they
+wouldn't run out before the end of the month.
+
+Funnelweb is an open sourced program released under the GPLv3
+which runs on a Linux computer.  It is free to download,
+and install on your own hardware, or you can purchase Funnelweb from
+us either as a download image, on removable memory
+(CFDisks, SDram, microSD, USB sticks....) or a completely configured,
+plug-n-play piece of hardware. We can also make custom versions
+suitable for schools, hotels, or public access hotspots.
+
+In the spirit of open source, we don't actually charge for the
+software.  We fund our Funnelweb development and improvement of the
+documentation by charging for our time, the documentation, media,
+support and customisation.  Purchasing Funnelweb from us allows us to
+offer high quality support and to keep improving Funnelweb.  It also
+allows us to maintain a set of the hardware systems that our users
+use, so we can thoroughly test Funnelweb before we release new
+versions.
+
+Funnelweb can be run on a normal desktop PC (with two network ports).
+A PC running 24 hours a day, seven days a week churns through a lot of
+electricity, so we have designed it to also run on the same sorts of
+hardware that many of the wireless routers and ADSL modems run on: it
+uses much less power, runs silently and can be tucked out of the way.
+
+Users who have bought support, documentation, media or customised
+systems also get access to our email help-line, copies of any improved
+versions of the documentation and access to our improved versions of
+the Funnelweb software.

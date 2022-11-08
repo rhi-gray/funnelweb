@@ -1,0 +1,39 @@
+$def with (form, errors = False)
+
+$var title: Add a user
+
+$if errors:
+  <h1>Invalid input!</h1>
+
+<form name="adduser" method="POST" action="/adduser" >
+  $:form.render()
+  <button type="submit">Add user</button>
+</form>
+
+<script type="text/javascript">
+  // Ensure that the form displays properly.
+  var quot = document.getElementById("use_quota_#t");
+  var dyn_quot = document.getElementById("use_dyn_quota_#t");
+  var shares = document.getElementById("shares");
+  var static = document.getElementById("static_quota");
+  var monthly = document.getElementById("monthly_quota");
+  var deps = [dyn_quot, shares, static, monthly];
+
+  quot.onchange = function(){
+    for (v in deps) {
+      deps[v].readOnly = deps[v].disabled = !quot.checked;
+    }
+  }
+  dyn_quot.onchange = function(){
+    // If we're disabled, don't touch the shares.
+    if (!dyn_quot.checked) {
+      shares.readOnly = shares.disabled = true;
+    }
+    else if (quot.checked) {
+      shares.readOnly = shares.disabled = false;
+    }
+  }
+  // Set it up right the first time.
+  dyn_quot.onchange();
+  quot.onchange();
+</script>

@@ -1,0 +1,10 @@
+$def with (form, hostname = False, owner = "unknown")
+
+$var title: Add device
+
+$if hostname:
+  <h2> Note: the device "$hostname" has already been registered to $owner.</h2>
+<form name="adddevice" method="POST" action="/adddevice" >
+  $:form.render()
+  <button type="submit">Submit</button>
+</form>

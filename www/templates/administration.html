@@ -1,0 +1,34 @@
+$def with (users, max_devices, form)
+$# users : a list of (username, user_locked, usage, total, (device, lock), (device, lock)...)
+$var head: <script type="text/javascript"> function nameClick(user){ var userEntry = document.forms.manage.users; if (userEntry.value.indexOf(user) < 0){ document.forms.manage.users.value += user + ","; } } </script>
+
+$var title: Administration
+
+<table id="usagetable">
+  <tr class="header"> <td>User name</td> <td>Usage</td><td>Devices</td>
+    $code:
+        extra = "<td></td>" * (max_devices - 1)
+    $:extra
+    $for user in users:
+        <tr class="${'odd' if loop.odd else 'even'}">
+        $ name = user[0]
+        $ is_slocked = user[1]
+        $ usage = user[2]
+        $ total = user[3]
+        $ devlist = user[4:]
+        <td class="user ${'lc' if user[1] else 'unl'}" onclick="nameClick('$name')">$name</td>
+        <td>$usage/$total</td>
+        $for dev in devlist:
+            <td class="device ${'lc' if dev[1] else 'ul'}" onclick="nameClick('$dev[0]')">$dev[0]</td>
+        $ pad = "<td></td>" * (max_devices - len(devlist))
+        $:pad
+        </tr>
+</table>
+
+<hr />
+
+<form name="manage" method="POST" action="/admin" >
+  $if not form.valid: <p class="error">Invalid input!</p>
+  $:form.render()
+  <button type="submit">Submit</button>
+</form>
